@@ -123,15 +123,6 @@
     padding-block: clamp(72px, 16vh, 180px);
   }
 
-  .eyebrow {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--brass);
-    margin-bottom: 26px;
-  }
-
   h1 {
     font-size: clamp(38px, 6.4vw, 76px);
     font-weight: 500;
@@ -233,8 +224,7 @@
   }
   .fade.d1 { animation-delay: 0.05s; }
   .fade.d2 { animation-delay: 0.15s; }
-  .fade.d3 { animation-delay: 0.25s; }
-  .fade.d4 { animation-delay: 0.55s; }
+  .fade.d3 { animation-delay: 0.45s; }
 
   @keyframes rise {
     to { opacity: 1; transform: translateY(0); }
@@ -264,13 +254,12 @@
 
   <main>
     <div class="wrap">
-      <p class="eyebrow fade d1">Financial technology</p>
-      <h1 class="fade d2">We build infrastructure for financial markets.</h1>
-      <p class="lede fade d3">A focused team working on the systems behind the next generation of markets. We will share more when the time is right.</p>
+      <h1 class="fade d1">We build infrastructure for financial markets.</h1>
+      <p class="lede fade d2">A focused team working on the systems behind the next generation of markets. We will share more when the time is right.</p>
 
       <div class="rule" aria-hidden="true"></div>
 
-      <div class="fade d4">
+      <div class="fade d3">
         <p class="contact-label">Get in touch</p>
         <a class="contact-link" href="mailto:hello@stakehq.xyz">hello@stakehq.xyz</a>
       </div>
