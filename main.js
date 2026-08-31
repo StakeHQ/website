@@ -1,4 +1,4 @@
-/* Stake — nav toggle + scroll reveal */
+/* Stake nav toggle + scroll reveal */
 (function () {
   // Mobile nav
   var toggle = document.querySelector(".nav-toggle");

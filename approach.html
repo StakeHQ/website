@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Approach — Stake</title>
-<meta name="description" content="How Stake builds: reliability, security, and observability treated as first principles for financial-market infrastructure." />
+<title>What we build | Stake</title>
+<meta name="description" content="Stake builds the systems that let US dollars move quickly and safely between people and businesses around the world." />
 <link rel="canonical" href="https://stakehq.xyz/approach.html" />
-<meta property="og:title" content="Approach — Stake" />
-<meta property="og:description" content="How we translate rigor into systems." />
+<meta property="og:title" content="What we build | Stake" />
+<meta property="og:description" content="Infrastructure for moving dollars." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://stakehq.xyz/approach.html" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,7 +26,7 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">Company</a></li>
-        <li><a href="approach.html" aria-current="page">Approach</a></li>
+        <li><a href="approach.html" aria-current="page">What we build</a></li>
         <li><a href="careers.html">Careers</a></li>
         <li><a class="nav-cta" href="contact.html">Contact</a></li>
       </ul>
@@ -36,82 +36,62 @@
   <main>
     <!-- Hero -->
     <section class="wrap hero">
-      <p class="eyebrow fade d1">Our approach</p>
-      <h1 class="display fade d2">Principles, translated<br />into systems.</h1>
-      <p class="lede fade d3">We build infrastructure the way it should be built for markets: correct before it is clever, observable before it is scaled, and secure at every layer it touches. Here is how we think about the work.</p>
+      <p class="eyebrow fade d1">What we build</p>
+      <h1 class="display fade d2">Infrastructure for<br />moving dollars.</h1>
+      <p class="lede fade d3">We build the systems that let US dollars move between people and businesses around the world. Fewer delays, clearer costs, and payments you can actually track.</p>
       <div class="hairline" aria-hidden="true"></div>
     </section>
 
-    <!-- Pillars -->
+    <!-- Capabilities -->
     <section class="wrap section-tight">
-      <div class="grid grid-3">
-        <div class="card reveal">
-          <p class="idx">01 — Foundations</p>
-          <h3>Correct by construction</h3>
-          <p>We define the invariants first and build so they cannot be violated. Types, tests, and formal checks carry the load that hope otherwise would.</p>
+      <div class="rows reveal">
+        <div class="row">
+          <div class="k">Payments</div>
+          <div class="v">
+            <h3>Dollars, across borders</h3>
+            <p>Move US dollars between people and businesses and settle in far less time than the systems most money still runs on.</p>
+          </div>
         </div>
-        <div class="card reveal">
-          <p class="idx">02 — Resilience</p>
-          <h3>Designed to degrade gracefully</h3>
-          <p>Failure is a certainty, not a surprise. Systems are built to contain it, recover from it, and keep their promises while they do.</p>
+        <div class="row">
+          <div class="k">Reliability</div>
+          <div class="v">
+            <h3>Always on</h3>
+            <p>Financial systems cannot take a day off. Ours are built to run continuously and recover cleanly when something goes wrong.</p>
+          </div>
         </div>
-        <div class="card reveal">
-          <p class="idx">03 — Security</p>
-          <h3>Defense in depth</h3>
-          <p>Least privilege, strong boundaries, and continuous review. We assume adversaries are patient and design as if they are already inside.</p>
+        <div class="row">
+          <div class="k">Security</div>
+          <div class="v">
+            <h3>Protected end to end</h3>
+            <p>Every payment passes through systems built to guard it, with strong access controls and continuous review.</p>
+          </div>
         </div>
-        <div class="card reveal">
-          <p class="idx">04 — Observability</p>
-          <h3>Nothing happens in the dark</h3>
-          <p>Every meaningful event is measured and traceable. If we cannot see it, we do not consider it done.</p>
+        <div class="row">
+          <div class="k">Compliance</div>
+          <div class="v">
+            <h3>Built into the rails</h3>
+            <p>We treat regulatory and risk requirements as core infrastructure rather than something added at the end.</p>
+          </div>
         </div>
-        <div class="card reveal">
-          <p class="idx">05 — Performance</p>
-          <h3>Fast where it counts</h3>
-          <p>Latency is a feature and a discipline. We optimize the paths that matter and leave the rest deliberately simple.</p>
-        </div>
-        <div class="card reveal">
-          <p class="idx">06 — Craft</p>
-          <h3>Maintainable for the long run</h3>
-          <p>Code is read far more than it is written. We build for the engineer who inherits it, not just the one who ships it.</p>
+        <div class="row">
+          <div class="k">Visibility</div>
+          <div class="v">
+            <h3>No more guessing</h3>
+            <p>Clear status and clear costs, so no one is left wondering where a payment is or what it will cost to send.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Method / process -->
+    <!-- Standards -->
     <section class="wrap section">
-      <div class="section-head reveal">
-        <p class="eyebrow">How the work moves</p>
-        <h2 class="display">A deliberate path from question to system.</h2>
-      </div>
-      <div class="rows reveal">
-        <div class="row">
-          <div class="k">01 · Understand</div>
-          <div class="v">
-            <h3>Start with the hard constraints</h3>
-            <p>Before a line is written, we agree on what must never break. The requirements that carry real consequence set the shape of everything that follows.</p>
-          </div>
+      <div class="split">
+        <div class="reveal">
+          <p class="eyebrow">The bar we hold</p>
+          <h2 class="display">Correct first, fast second.</h2>
         </div>
-        <div class="row">
-          <div class="k">02 · Design</div>
-          <div class="v">
-            <h3>Choose the simplest thing that holds</h3>
-            <p>We weigh trade-offs in the open and prefer designs that stay legible under pressure. Elegance here means fewer ways to be wrong.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="k">03 · Build</div>
-          <div class="v">
-            <h3>Prove it, then ship it</h3>
-            <p>We verify behavior against the invariants we set out to protect — with tests, review, and measurement — before anything reaches a place that matters.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="k">04 · Operate</div>
-          <div class="v">
-            <h3>Own it in production</h3>
-            <p>The work is not finished at deploy. We instrument, watch, and improve, treating every incident as a lesson the system should never need twice.</p>
-          </div>
+        <div class="reveal">
+          <p class="lede" style="max-width:60ch">Moving money leaves no room for silent errors. We decide what a system must never get wrong, build so it cannot, and prove it before anything reaches production. Speed follows from getting the foundations right.</p>
         </div>
       </div>
     </section>
@@ -119,8 +99,8 @@
     <!-- CTA -->
     <section class="wrap section-tight">
       <div class="cta-band reveal">
-        <h2 class="display">If this is how you build, we should talk.</h2>
-        <p>We are always interested in people and partners who hold the same standards. Reach out — we read everything.</p>
+        <h2 class="display">Interested in working together?</h2>
+        <p>We are talking to partners and hiring people who want to build this with us.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="careers.html" style="background:var(--paper);color:var(--ink)">See open roles <span class="arrow" aria-hidden="true">→</span></a>
           <a class="btn btn-ghost" href="contact.html">Get in touch</a>
@@ -134,13 +114,13 @@
       <div class="footer-top">
         <div>
           <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>Stake</a>
-          <p class="footer-blurb">Infrastructure for financial markets. Built with rigor, restraint, and a long view.</p>
+          <p class="footer-blurb">Infrastructure that makes it easier for dollars to move around the world.</p>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
             <li><a href="about.html">About</a></li>
-            <li><a href="approach.html">Approach</a></li>
+            <li><a href="approach.html">What we build</a></li>
             <li><a href="careers.html">Careers</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
