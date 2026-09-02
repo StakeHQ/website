@@ -3,275 +3,162 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Stake</title>
-<meta name="description" content="Stake builds infrastructure for financial markets." />
+<title>Stake | Moving dollars around the world</title>
+<meta name="description" content="Stake builds infrastructure that makes it easier for US dollars to move around the world." />
+<link rel="canonical" href="https://stakehq.xyz/" />
+<meta property="og:title" content="Stake" />
+<meta property="og:description" content="We make it easier for US dollars to move around the world." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://stakehq.xyz/" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<style>
-  :root {
-    --ink: #0A0F1A;
-    --ink-2: #0E1524;
-    --line: rgba(255, 255, 255, 0.09);
-    --line-strong: rgba(255, 255, 255, 0.16);
-    --text: #E8ECF3;
-    --muted: #8592A8;
-    --muted-dim: #5D6979;
-    --brass: #C6A15B;
-    --brass-soft: rgba(198, 161, 91, 0.55);
-
-    --sans: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
-    --mono: "IBM Plex Mono", ui-monospace, monospace;
-
-    --maxw: 1120px;
-    --pad: clamp(24px, 5vw, 72px);
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-
-  body {
-    background: var(--ink);
-    color: var(--text);
-    font-family: var(--sans);
-    font-weight: 400;
-    line-height: 1.5;
-    min-height: 100vh;
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow-x: hidden;
-  }
-
-  /* Ambient depth: a single soft glow, low opacity */
-  body::before {
-    content: "";
-    position: fixed;
-    top: -20%;
-    left: 50%;
-    width: 90vw;
-    max-width: 900px;
-    aspect-ratio: 1 / 1;
-    transform: translateX(-50%);
-    background: radial-gradient(circle at center, rgba(198, 161, 91, 0.07), transparent 62%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .wrap {
-    width: 100%;
-    max-width: var(--maxw);
-    margin-inline: auto;
-    padding-inline: var(--pad);
-    position: relative;
-    z-index: 1;
-  }
-
-  /* ---------- Header ---------- */
-  header {
-    border-bottom: 1px solid var(--line);
-    padding-block: 22px;
-  }
-
-  .header-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-  }
-
-  .brand {
-    font-size: 19px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text);
-  }
-
-  .status {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--muted);
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-  }
-
-  .status .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--brass);
-    box-shadow: 0 0 0 0 var(--brass-soft);
-    animation: pulse 3.4s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(198, 161, 91, 0.45); }
-    50% { box-shadow: 0 0 0 5px rgba(198, 161, 91, 0); }
-  }
-
-  /* ---------- Main ---------- */
-  main {
-    flex: 1 0 auto;
-    display: flex;
-    align-items: center;
-    padding-block: clamp(72px, 16vh, 180px);
-  }
-
-  h1 {
-    font-size: clamp(38px, 6.4vw, 76px);
-    font-weight: 500;
-    line-height: 1.04;
-    letter-spacing: -0.02em;
-    max-width: 15ch;
-    color: var(--text);
-  }
-
-  .lede {
-    margin-top: 30px;
-    font-size: clamp(16px, 1.7vw, 19px);
-    font-weight: 300;
-    color: var(--muted);
-    max-width: 52ch;
-    line-height: 1.65;
-  }
-
-  /* Signature: a hairline that draws in on load */
-  .rule {
-    height: 1px;
-    background: linear-gradient(to right, var(--brass-soft), var(--line));
-    margin-block: clamp(44px, 7vh, 72px) clamp(28px, 4vh, 44px);
-    transform-origin: left center;
-    transform: scaleX(0);
-    animation: draw 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
-  }
-
-  @keyframes draw { to { transform: scaleX(1); } }
-
-  .contact-label {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--muted-dim);
-    margin-bottom: 14px;
-  }
-
-  .contact-link {
-    display: inline-block;
-    font-size: clamp(22px, 3.2vw, 32px);
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    color: var(--text);
-    text-decoration: none;
-    position: relative;
-    padding-bottom: 4px;
-  }
-
-  .contact-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 1px;
-    background: var(--line-strong);
-    transform: scaleX(1);
-    transform-origin: right center;
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.4s ease;
-  }
-
-  .contact-link:hover::after,
-  .contact-link:focus-visible::after {
-    background: var(--brass);
-    transform: scaleX(1);
-  }
-
-  .contact-link:focus-visible {
-    outline: 2px solid var(--brass-soft);
-    outline-offset: 6px;
-    border-radius: 2px;
-  }
-
-  /* ---------- Footer ---------- */
-  footer {
-    border-top: 1px solid var(--line);
-    padding-block: 22px;
-    flex-shrink: 0;
-  }
-
-  .footer-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    color: var(--muted-dim);
-  }
-
-  /* Entry animation for the hero block */
-  .fade {
-    opacity: 0;
-    transform: translateY(14px);
-    animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-  .fade.d1 { animation-delay: 0.05s; }
-  .fade.d2 { animation-delay: 0.15s; }
-  .fade.d3 { animation-delay: 0.25s; }
-  .fade.d4 { animation-delay: 0.55s; }
-
-  @keyframes rise {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @media (max-width: 560px) {
-    .footer-row { flex-direction: column; align-items: flex-start; gap: 8px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation: none !important;
-      transition: none !important;
-    }
-    .rule { transform: scaleX(1); }
-    .fade { opacity: 1; transform: none; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Spectral:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <div class="wrap header-row">
-      <span class="brand">Stake</span>
-      <!-- <span class="status"><span class="dot" aria-hidden="true"></span>In development</span> -->
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>Stake</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">Company</a></li>
+        <li><a href="approach.html">What we build</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a class="nav-cta" href="contact.html">Contact</a></li>
+      </ul>
     </div>
   </header>
 
   <main>
-    <div class="wrap">
-      <h1 class="fade d2">We build infrastructure for financial markets.</h1>
-      <p class="lede fade d3">A focused team working on the systems behind the next generation of markets. We will share more when the time is right.</p>
-
-      <div class="rule" aria-hidden="true"></div>
-
-      <div class="fade d4">
-        <p class="contact-label">Get in touch</p>
-        <a class="contact-link" href="mailto:hello@stakehq.xyz">hello@stakehq.xyz</a>
+    <!-- Hero -->
+    <section class="wrap hero">
+      <p class="eyebrow fade d1">San Francisco, California</p>
+      <h1 class="display fade d2">We make it easier for<br />dollars to move around<br />the world.</h1>
+      <p class="lede fade d3">Stake builds infrastructure for global dollar payments. We help money reach where it needs to go quickly and safely, across borders and time zones.</p>
+      <div class="hero-actions fade d4">
+        <a class="btn btn-primary" href="approach.html">What we build <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="contact.html">Get in touch</a>
       </div>
-    </div>
+      <div class="hairline" aria-hidden="true"></div>
+    </section>
+
+    <!-- The problem -->
+    <section class="wrap section-tight">
+      <div class="split">
+        <div class="reveal">
+          <p class="eyebrow">The problem</p>
+          <h2 class="display">Moving dollars across borders is still slow.</h2>
+        </div>
+        <div class="reveal">
+          <p class="lede" style="max-width:58ch">Moving dollars still runs on infrastructure built for a slower era. It can be slow, hard to predict, and hard to see into. We think that should be better.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How we help -->
+    <section class="wrap section">
+      <div class="section-head reveal">
+        <p class="eyebrow">What we do</p>
+        <h2 class="display">A better way to move money.</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card reveal">
+          <p class="idx">01</p>
+          <h3>Global reach</h3>
+          <p>Send and receive US dollars to and from accounts in markets around the world.</p>
+        </div>
+        <div class="card reveal">
+          <p class="idx">02</p>
+          <h3>Faster settlement</h3>
+          <p>Payments that move in far less time than traditional banking rails take.</p>
+        </div>
+        <div class="card reveal">
+          <p class="idx">03</p>
+          <h3>Built for trust</h3>
+          <p>Security and compliance designed into the system from the start, not bolted on later.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why it matters -->
+    <section class="wrap section-tight">
+      <div class="split">
+        <div class="reveal">
+          <p class="eyebrow">Why it matters</p>
+          <h2 class="display">The dollar runs global business.</h2>
+          <p class="lede" style="margin-top:22px">More trade, payroll, and commerce moves in dollars than in any other currency. When that money is slow or unreliable, real businesses feel it. We build the rails so they do not have to think about them.</p>
+          <div class="hero-actions">
+            <a class="btn btn-ghost" href="about.html">About the company <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="panel reveal">
+          <p class="eyebrow">What we hold to</p>
+          <div class="rows" style="border-top:1px solid rgba(255,255,255,0.12)">
+            <div class="row" style="border-color:rgba(255,255,255,0.12)">
+              <div class="k" style="color:var(--brass-bright)">Speed</div>
+              <div class="v"><p style="color:rgba(232,236,243,0.78)">Money that keeps pace with the businesses depending on it.</p></div>
+            </div>
+            <div class="row" style="border-color:rgba(255,255,255,0.12)">
+              <div class="k" style="color:var(--brass-bright)">Reliability</div>
+              <div class="v"><p style="color:rgba(232,236,243,0.78)">Systems designed to run around the clock, every day of the year.</p></div>
+            </div>
+            <div class="row" style="border-color:rgba(255,255,255,0.12)">
+              <div class="k" style="color:var(--brass-bright)">Security</div>
+              <div class="v"><p style="color:rgba(232,236,243,0.78)">Protection and compliance at every step a payment takes.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="wrap section">
+      <div class="cta-band reveal">
+        <h2 class="display">Want to work with us?</h2>
+        <p>Whether you are a potential partner or looking to join the team, we would be glad to hear from you.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="contact.html" style="background:var(--paper);color:var(--ink)">Get in touch <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="careers.html">See open roles</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <div class="wrap footer-row">
-      <span>&copy; 2026 Stake</span>
-      <span>stakehq.xyz</span>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>Stake</a>
+          <p class="footer-blurb">Infrastructure that makes it easier for dollars to move around the world.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="approach.html">What we build</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in touch</h4>
+          <ul>
+            <li><a href="mailto:hello@stakehq.xyz">hello@stakehq.xyz</a></li>
+            <li><span style="color:var(--muted)">San Francisco, CA</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Stake. All rights reserved.</span>
+        <span>stakehq.xyz</span>
+      </div>
     </div>
   </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
