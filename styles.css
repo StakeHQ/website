@@ -402,7 +402,7 @@ main { flex: 1 0 auto; position: relative; z-index: 1; }
 .panel h2, .panel h3 { color: #F5F3EE; }
 .panel p { color: rgba(232, 236, 243, 0.72); }
 
-/* Definition list rows */
+/* Key-value rows */
 .rows { border-top: 1px solid var(--line); }
 .row {
   display: grid;
