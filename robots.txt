@@ -1,0 +1,112 @@
+# stakehq.xyz — site is intentionally kept out of search results and
+# AI training corpora for now.
+#
+# Two different mechanisms are used on purpose:
+#
+#   1. Search engines (Google, Bing, etc.) are ALLOWED to crawl. Every page
+#      serves <meta name="robots" content="noindex, ..."> and a crawler can
+#      only obey noindex if it is permitted to fetch the page and read it.
+#      Blocking them here instead would leave already-indexed URLs stuck in
+#      the index as bare, snippet-less results.
+#
+#   2. AI training / scraping crawlers are DISALLOWED outright. They do not
+#      populate a search index, so there is nothing to de-list, and a full
+#      block is the strongest signal available.
+#
+# No sitemap is published, by design.
+
+# ---------------------------------------------------------------------------
+# 1. Search engine crawlers — allowed to crawl so they can see "noindex".
+# ---------------------------------------------------------------------------
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-News
+User-agent: Storebot-Google
+User-agent: Bingbot
+User-agent: msnbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
+User-agent: Applebot
+User-agent: Qwantify
+User-agent: SeznamBot
+User-agent: Naverbot
+Disallow:
+
+# ---------------------------------------------------------------------------
+# 2. AI training, AI answer-engine and LLM crawlers — blocked.
+# ---------------------------------------------------------------------------
+# OpenAI
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+# Anthropic
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+# Google AI (opt-out token; does not affect Googlebot search crawling)
+User-agent: Google-Extended
+# Apple AI (opt-out token; does not affect Applebot search crawling)
+User-agent: Applebot-Extended
+# Perplexity
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+# Meta
+User-agent: FacebookBot
+User-agent: meta-externalagent
+User-agent: meta-externalfetcher
+# Amazon / Apple / ByteDance / others
+User-agent: Amazonbot
+User-agent: Bytespider
+User-agent: TikTokSpider
+User-agent: PanguBot
+User-agent: YouBot
+User-agent: Timpibot
+User-agent: Webzio-Extended
+User-agent: Kangaroo Bot
+# Common Crawl (a primary source of LLM training data)
+User-agent: CCBot
+# AI2
+User-agent: AI2Bot
+User-agent: Ai2Bot-Dolma
+# Cohere
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+# Mistral / xAI / DeepSeek / other model builders
+User-agent: MistralAI-User
+User-agent: xAI-Bot
+User-agent: Devin
+# Dataset / scraping services
+User-agent: Diffbot
+User-agent: ImagesiftBot
+User-agent: Omgili
+User-agent: omgilibot
+User-agent: Scrapy
+User-agent: Firecrawl
+User-agent: Bytedance
+Disallow: /
+
+# ---------------------------------------------------------------------------
+# 3. SEO / backlink / marketing crawlers — blocked (they surface the site in
+#    third-party databases even when search engines do not show it).
+# ---------------------------------------------------------------------------
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: BLEXBot
+User-agent: DataForSeoBot
+User-agent: PetalBot
+User-agent: Barkrowler
+User-agent: SerpstatBot
+User-agent: ZoominfoBot
+Disallow: /
+
+# ---------------------------------------------------------------------------
+# 4. Everything else — blocked by default.
+# ---------------------------------------------------------------------------
+User-agent: *
+Disallow: /
